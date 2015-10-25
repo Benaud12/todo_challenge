@@ -4,7 +4,7 @@
   "description": "* Deadline: submit completed pull request by 9am on Monday * You may use whatever level of JavaScript you feel comfortable with - pure JS, jQuery, Angular, or whatever weird and wonderful framework you want to try. Extra points for DogeScript",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/karma start --browsers Firefox --single-run"
+    "test": "'./node_modules/.bin/karma start --single-run --browsers PhantomJS'"
   },
   "repository": {
     "type": "git",
