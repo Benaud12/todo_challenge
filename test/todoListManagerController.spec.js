@@ -12,24 +12,36 @@ describe('TodoListManagerController', function() {
     expect(ctrl.todoList).toBeUndefined();
   });
 
-  it('tasks can be added to the list', function(){
-    ctrl.taskName = 'Test my app'
-    ctrl.addTask();
-    expect(ctrl.todoList.length).toEqual(1);
-  });
+  describe('#addTask', function(){
 
-  it('taskName is cleared after adding task', function(){
-    ctrl.taskName = 'Test my app'
-    ctrl.addTask();
-    expect(ctrl.taskName).toEqual('');
-  });
+    it('tasks can be added to the list', function(){
+      ctrl.taskName = 'Test my app'
+      ctrl.addTask();
+      expect(ctrl.todoList.length).toEqual(1);
+    });
 
-  it('retains multiple tasks', function(){
-    ctrl.taskName = 'Test my app'
-    ctrl.addTask();
-    ctrl.addTask();
-    ctrl.addTask();
-    expect(ctrl.todoList.length).toEqual(3);
+    it('taskName is cleared after adding task', function(){
+      ctrl.taskName = 'Test my app'
+      ctrl.addTask();
+      expect(ctrl.taskName).toEqual('');
+    });
+
+    it('retains multiple tasks', function(){
+      ctrl.taskName = 'Test my app'
+      ctrl.addTask();
+      ctrl.taskName = 'Test twice'
+      ctrl.addTask();
+      ctrl.taskName = 'Test three times'
+      ctrl.addTask();
+      expect(ctrl.todoList.length).toEqual(3);
+    });
+
+    it('doesn\'t add empty strings to the todo list', function(){
+      ctrl.taskName = ''
+      ctrl.addTask();
+      expect(ctrl.todoList).toBeUndefined();
+    });
+
   });
 
   describe('#deleteTask', function(){

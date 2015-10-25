@@ -38,6 +38,14 @@ describe('Todo List', function() {
       expect(tasks.count()).toEqual(3);
     });
 
+    it('doesn\'t allow adding without a task name', function(){
+      taskNameBox.sendKeys('Test my app');
+      addButton.click();
+      addButton.click();
+      var tasks = element.all(by.repeater('task in listCtrl.todoList'));
+      expect(tasks.count()).toEqual(1);
+    });
+
   });
 
   describe('deleting tasks', function(){

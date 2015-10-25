@@ -3,9 +3,11 @@ todoListManager.controller('TodoListManagerController', [function(){
   self = this;
 
   self.addTask = function(){
-    self.todoList = self.todoList || [];
-    self.todoList.push(self.taskName);
-    self.taskName = '';
+    if (self.taskName) {
+      self.todoList = self.todoList || [];
+      self.todoList.push(self.taskName);
+      self.taskName = '';
+    };
   };
 
   self.deleteTask = function(taskName){
