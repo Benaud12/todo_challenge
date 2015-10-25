@@ -20,7 +20,8 @@
       </form>
       <ul>
         <li ng-repeat="task in listCtrl.todoList">
-          <label>{{task.name}}</label>
+          <label class="taskName">{{task}}</label>
+          <button class="deleteButton" ng-click="listCtrl.deleteTask(task)">x</button>
         </li>
       </ul>
     </div>
