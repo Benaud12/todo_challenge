@@ -20,7 +20,7 @@
         <button class="addButton" ng-click="listCtrl.addTask()">Add</button>
       </form>
       <ul>
-        <li ng-repeat="task in listCtrl.todoList" ng-hide="task.complete">
+        <li ng-repeat="task in listCtrl.todoList">
           <input type="checkbox" class="checkBox" ng-model="task.complete">
           <label class="taskName">{{task.name}}</label>
           <button class="deleteButton" ng-click="listCtrl.deleteTask(task)">x</button>
