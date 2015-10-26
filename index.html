@@ -14,13 +14,15 @@
 
   <body>
     <div ng-controller="TodoListManagerController as listCtrl">
+      <h3>Todo List</h3>
       <form>
         <input type="text" ng-model="listCtrl.taskName">
         <button class="addButton" ng-click="listCtrl.addTask()">Add</button>
       </form>
       <ul>
-        <li ng-repeat="task in listCtrl.todoList">
-          <label class="taskName">{{task}}</label>
+        <li ng-repeat="task in listCtrl.todoList" ng-hide="task.complete">
+          <input type="checkbox" class="checkBox" ng-model="task.complete">
+          <label class="taskName">{{task.name}}</label>
           <button class="deleteButton" ng-click="listCtrl.deleteTask(task)">x</button>
         </li>
       </ul>

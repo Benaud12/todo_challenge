@@ -15,23 +15,24 @@ describe('TodoListManagerController', function() {
   describe('#addTask', function(){
 
     it('tasks can be added to the list', function(){
-      ctrl.taskName = 'Test my app'
+      ctrl.taskName = 'Test my app';
       ctrl.addTask();
       expect(ctrl.todoList.length).toEqual(1);
+      expect(ctrl.todoList[0].name).toEqual('Test my app');
     });
 
     it('taskName is cleared after adding task', function(){
-      ctrl.taskName = 'Test my app'
+      ctrl.taskName = 'Test my app';
       ctrl.addTask();
       expect(ctrl.taskName).toEqual('');
     });
 
     it('retains multiple tasks', function(){
-      ctrl.taskName = 'Test my app'
+      ctrl.taskName = 'Test my app';
       ctrl.addTask();
-      ctrl.taskName = 'Test twice'
+      ctrl.taskName = 'Test twice';
       ctrl.addTask();
-      ctrl.taskName = 'Test three times'
+      ctrl.taskName = 'Test three times';
       ctrl.addTask();
       expect(ctrl.todoList.length).toEqual(3);
     });
@@ -40,6 +41,12 @@ describe('TodoListManagerController', function() {
       ctrl.taskName = ''
       ctrl.addTask();
       expect(ctrl.todoList).toBeUndefined();
+    });
+
+    it('tasks added as incomplete', function(){
+      ctrl.taskName = 'Test my app';
+      ctrl.addTask();
+      expect(ctrl.todoList[0].complete).toBe(false);
     });
 
   });
